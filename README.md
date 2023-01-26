@@ -18,15 +18,17 @@ Edite os campos com as informações da sua conexão
 //./backend/.env
 DB_CONNECTION_STRING=mongodb+srv://USERNAME:PASSWORD@HOST/DB_NAME
 ```
-Rode a API
+Instale as dependências da API e rode
 ```
 cd ./backend
+npm install
 npm run dev
 ```
 
-Rode o Cliente
+Instale as dependências do Cliente e rode
 ```
 cd ./frontend
+npm install
 npm run dev
 ```
 
