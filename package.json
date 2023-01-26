@@ -1,0 +1,11 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/willianlouza/todo-react.git",
+  "author": "Willian Louza <willianlouza@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "config": "echo DB_CONNECTION_STRING=mongodb+srv://USERNAME:PASSWORD@HOST/DB_NAME > ./backend/.env"
+  }
+}
