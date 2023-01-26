@@ -20,7 +20,7 @@ export async function createTODO(req: Request<{}, {}, { description: string }, {
 }
 export async function getAllTODOs(req: Request, res: Response) {
   try {
-    const todos = await Todo.find({});
+    const todos = await Todo.find({}).sort({ _id: -1 });
     return res.status(200).json(todos);
   } catch (err) {
     return res.status(500).json({ message: "Impossível localizar as tarefas." });
@@ -39,20 +39,14 @@ export async function getTODO(req: Request<{}, {}, {}, { id: string }>, res: Res
     return res.status(500).json({ message: "Impossível localizar a tarefa." });
   }
 }
-export async function updateTODO(
-  req: Request<{}, {}, { description: string; checked: boolean }, { id: string }>,
-  res: Response
-) {
+export async function updateTODO(req: Request<{}, {}, { checked: boolean }, { id: string }>, res: Response) {
   const id = req.query.id;
   if (!id) return res.status(400).json({ message: "ID é necessário." });
 
-  const { description, checked } = req.body;
-  if (!description || !checked) {
-    return res.status(400).json({ message: "Informe a descrição e o estado da tarefa." });
-  }
+  const { checked } = req.body;
 
   try {
-    const update = await Todo.findOneAndUpdate({ _id: id }, { description, checked });
+    const update = await Todo.findOneAndUpdate({ _id: id }, { checked });
     return res.status(200).json({ message: "Tarefa atualizada" });
   } catch (err) {
     return res.status(500).json({ message: "Impossível atualizar a tarefa" });

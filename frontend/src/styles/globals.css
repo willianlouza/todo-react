@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: var(--poppins-font);
+  }
+}
+[data-theme="dark"] {
+  background-color: #0a0a0a;
+  color: #fefefe;
+}
+:root[data-theme="light"] {
+  background-color: #fefefe;
+  color: #0a0a0a;
+}
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
